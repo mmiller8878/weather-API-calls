@@ -9,6 +9,9 @@ __pycache__/
 Pycharm
 *.idea
 
+#virtualenv
+test_virtualenv/
+
 # Distribution / packaging
 .Python
 env/
