@@ -4,18 +4,18 @@ import pandas as pd
 directory_to_store_files = 'C:/Users/matt.miller/SharePoint/Agrimetrics Team Site - Documents/Data/DEFRA rainfall API/'
 #local directory to store obtained files from API call
 
-url = "http://environment.data.gov.uk/flood-monitoring/archive/readings-"
-#URL for API calls
+uri = "http://environment.data.gov.uk/flood-monitoring/archive/readings-"
+#URI for API calls
 
-station_ref_url = 'http://environment.data.gov.uk/flood-monitoring/id/stations?parameter=rainfall'
-#get metadata associated with each observation station
+station_ref_uri = 'http://environment.data.gov.uk/flood-monitoring/id/stations?parameter=rainfall'
+#get metadata associated with each observation station e.g. location. file returned is in json-ld
 
 def get_rainfall_data(start_date,end_date):
-    #Input start date and end date for rainfall data required, in the format yyyy-mm-dd. Each day will produce a separate file
+    #Input start date and end date for rainfall data required, in the format yyyy-mm-dd. Each day will produce a separate csv file
     daterange = pd.date_range(start_date, end_date)
     for specificdate in daterange:
         specificdate = specificdate.strftime("%Y-%m-%d")
-        r = requests.get(url+specificdate+'.csv')
+        r = requests.get(uri+specificdate+'.csv')
         with open(directory_to_store_files+specificdate+'.csv', "wb") as dataset:
             dataset.write(r.content)
             print("saving..."+specificdate+'.csv')
