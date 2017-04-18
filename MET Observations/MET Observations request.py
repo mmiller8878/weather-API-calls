@@ -17,7 +17,7 @@ params = {"Type": "Observation",
           "PredictionSiteID": "ALL",
           "ObservationSiteID": "ALL",
           "Date": "03/04/2017",
-          "PredictionTime": "0300"}.
+          "PredictionTime": "0300"}
 
 def post_request():
 
@@ -109,7 +109,7 @@ def write_warnings_to_log(inputdate,inputtime,lines):
 
 
 def main():
-    d = generate_hourly_daterange('24/10/2015-1800', '31/12/2015-2300')
+    d = generate_hourly_daterange('06/04/2017-1800', '15/04/2017-2000')
     get_measurements(d)
     if os.path.isfile(directory_to_save+"warning log.txt") == True:
         print('Completed, but there were warnings - please check warning log.txt')

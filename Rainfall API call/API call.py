@@ -1,7 +1,7 @@
 import requests
 import pandas as pd
 
-directory_to_store_files = 'C:/Users/matt.miller/SharePoint/Agrimetrics Team Site - Documents/Data/DEFRA rainfall API/'
+directory_to_store_files = 'C:\\Users\\matt.miller\\OneDrive - Agrimetrics\\'
 #local directory to store obtained files from API call
 
 uri = "http://environment.data.gov.uk/flood-monitoring/archive/readings-"
@@ -22,7 +22,7 @@ def get_rainfall_data(start_date,end_date):
 
 
 def get_station_reference_data():
-    metadatarequest = requests.get(station_ref_url)
+    metadatarequest = requests.get(station_ref_uri)
     with open (directory_to_store_files+'station reference data.jsonld', "wb") as metadata:
         print("saving...station reference data.jsonld")
         metadata.write(metadatarequest.content)
